@@ -3,12 +3,10 @@ package com.vthakur.tests.flightreservation;
 import com.vthakur.pages.flightreservation.*;
 import com.vthakur.tests.AbstractTest;
 import com.vthakur.tests.flightreservation.model.FlightReservationTestData;
+import com.vthakur.util.Config;
+import com.vthakur.util.Constants;
 import com.vthakur.util.JsonUtil;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -28,7 +26,7 @@ public class FlightReservationTest extends AbstractTest {
     @Test
     public void userRegistrationTest(){
         RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
+        registrationPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
         Assert.assertTrue(registrationPage.isAt());
 
         registrationPage.enterUserDetails(testData.firstName(), testData.lastName());
@@ -53,10 +51,10 @@ public class FlightReservationTest extends AbstractTest {
     }
     @Test(dependsOnMethods = "flightSearchTest")
     public void flightsSelectionTest(){
-        FlighsSelectionPage flighsSelectionPage = new FlighsSelectionPage(driver);
-        Assert.assertTrue(flighsSelectionPage.isAt());
-        flighsSelectionPage.selectFlights();
-        flighsSelectionPage.confirmFlights();
+        FlightsSelectionPage flightsSelectionPage = new FlightsSelectionPage(driver);
+        Assert.assertTrue(flightsSelectionPage.isAt());
+        flightsSelectionPage.selectFlights();
+        flightsSelectionPage.confirmFlights();
     }
     @Test(dependsOnMethods = "flightsSelectionTest")
     public void flightReservationConfirmationTest(){

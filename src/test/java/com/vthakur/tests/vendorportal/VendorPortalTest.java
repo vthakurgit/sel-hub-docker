@@ -4,6 +4,8 @@ import com.vthakur.pages.vendorportal.DashboardPage;
 import com.vthakur.pages.vendorportal.LoginPage;
 import com.vthakur.tests.AbstractTest;
 import com.vthakur.tests.vendorportal.model.VendorPortalTestData;
+import com.vthakur.util.Config;
+import com.vthakur.util.Constants;
 import com.vthakur.util.JsonUtil;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -27,7 +29,7 @@ public class VendorPortalTest extends AbstractTest {
     @Test
     public void loginTest(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html");
+        loginPage.goTo(Config.get(Constants.VENDOR_PORTAL_URL));
         Assert.assertTrue(loginPage.isAt());
         loginPage.login(testData.username(), testData.password());
     }

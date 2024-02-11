@@ -8,12 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 //Page#4 Author: Vinay Thakur || Tutor: Vinod Selvaraj
-public class FlighsSelectionPage extends AbstractPage {
+public class FlightsSelectionPage extends AbstractPage {
 
     //added logs to debug failure, it can be removed later
     private static final Logger log = LoggerFactory.getLogger(FlightConfirmationPage.class);
@@ -30,7 +29,7 @@ public class FlighsSelectionPage extends AbstractPage {
 
 
 
-    public FlighsSelectionPage(WebDriver driver) {
+    public FlightsSelectionPage(WebDriver driver) {
         super(driver);
     }
 

@@ -3,7 +3,14 @@
 - [Flight Reservation](https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html)
 - [Vendor Portal](https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html)
 
-Note: This is automation framework to be used for Docker Run.
+Note:
+- docker-compose.xml by spin up selenium/hub + 2 replicas each for FF & chrome
+- Automation framework enhanced to take screenshot(on failures).
+- Hardcoded values (like app url's), other parameters which required to over-ridden by command line are to util and config implementations:
+ a) util/Config.java || Read properties from "config/default.properties" file and also have implementation where it can override those properties incase passed running of mvn projects from terminal.
+ b) util/Constants.java || as a best practices constants moved here, to improve code readability.
+
+
 # Maven Dependencies
 
 ```
