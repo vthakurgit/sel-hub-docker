@@ -4,9 +4,10 @@
 - [Vendor Portal](https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html)
 
 Note:
-- docker-compose.xml by spin up selenium/hub + 2 replicas each for FF & chrome
-- Automation framework enhanced to take screenshot(on failures).
-- Hardcoded values (like app url's), other parameters which required to over-ridden by command line are to util and config implementations:
+- Add "docker-compose.xml" file, this will spin up selenium/hub + 2 replicas each for FF & chrome (need docker desktop or docker engine).
+- Automation framework enhanced to take screenshot(on failures) under TestListener.java and AbstractTest.java classes.
+- Removed hardcoded values (like app url's etc.) from automation code.
+- Parameters which required to over-ridden by command line are now part of util/Config.java implementation:
  a) util/Config.java || Read properties from "config/default.properties" file and also have implementation where it can override those properties incase passed running of mvn projects from terminal.
  b) util/Constants.java || as a best practices constants moved here, to improve code readability.
 
